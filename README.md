@@ -1,21 +1,35 @@
-# HPC-Use-Case-Whisper
+# HPC Use Case Whisper
 
-[Whisper ... here: Whisperx]
+This use case demonstrates how to use a HPC cluster to run an speech-to-text transcription and speaker diarization task with [WhisperX](https://github.com/m-bain/whisperX). See also [the GitHub repository Whisper-Audio-Transcription](https://github.com/Data-Science-Center-UB/Whisper-Audio-Transcription) for more information on this use case.
 
-**Step 1:** After logging into the HPC cluster, activate Conda and create a new environment for Whisperx. Afterwards we activate this new environment and install necessary packages. 
+---
 
-::: info 
-Because our cluster’s NVIDIA driver currently only supports CUDA 11.x, to run WhisperX on the GPU you would need to install CUDA-11–compatible CTranslate2 (e.g., 3.24.0) and faster-whisper (e.g., 0.10.1), PyTorch 1.10.2 with cudatoolkit=11.1, then install WhisperX 3.1.1 with --no-deps so it doesn’t upgrade PyTorch. 
-:::
-
-   ```
-   conda create -n whisperx-env python=3.10 -y
-   conda activate whisperx-env
-   conda install -c conda-forge ffmpeg pip -y
-   pip install whisperx
-   ```
-   
-**Step 2:** The code to import an example dataset (file "Buffy.wav") and perform the analysis inside a Python script (file "test_Whisperx.py") is:
+**Step 1 - Transfer the materials onto the cluster**:
+After logging into the HPC cluster, go to a workspace directory, then clone the repository with:
 
 ```
+git clone https://github.com/Data-Science-Center-UB/HPC-Use-Case-Whisper.git
+```
+
+**Step 2 - Create a new environment**:
+Note that we run the environment installation on the CPU compute node to avoid putting too much load on the login node in hackathon/workshop settings where many people work in parallel. We therefore run the installation via the sbatch script `setup.sh` so it executes on a compute node, not on the login node. Open `setup.sh` to see the exact steps.
+
+```
+# 1. Enter the project folder
+cd HPC-Use-Case-Whisper
+
+# 2. Create the virtual environments
+# The name is referenced in the bash scripts,
+# so it should not be changed
+python3 -m venv ./whisper-venv
+
+# 3. Run the installation via the sbatch script "setup.sh"
+sbatch setup.sh
+```
+
+**Step 3 - Run the Python script by submitting a SLURM job**:
+Submit the job so it runs on a compute node. Open `run_whisperx.sh` to see the exact steps.
+
+```bash
+sbatch run_whisperx.sh
 ```
