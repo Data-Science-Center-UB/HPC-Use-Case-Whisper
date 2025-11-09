@@ -4,6 +4,18 @@ This use case demonstrates how to use a HPC cluster to run an speech-to-text tra
 
 ---
 
+Prerequisite:
+
+If you don't have a Hugging Face Account you need to create one. 
+
+You will require token later on for the speaker diarization. You can create one by clicking on your profile icon; next click on "Access Tokens": Create a new access token. Important: Don't share your token.
+
+In addition, pyannote requires you to agree to share your contact information to access it's models. For that, go on the pyannote speaker-diarization model page, enter your information, and click on "Agree and access repository". Do the same for the pyannote segmentation model.
+
+You need to enter your token in the `transcribe.py` script by replacing `"ENTER_YOUR_TOKEN"` with your token in `own_token = "ENTER_YOUR_TOKEN"`.
+
+---
+
 **Step 1 - Transfer the materials onto the cluster**:
 After logging into the HPC cluster, go to a workspace directory, then clone the repository with:
 
