@@ -30,15 +30,17 @@
 
 # The actual code to be run starts here
 
-# Load the python LMod module so we can use the latest version
+# Load Conda
 # Check available modules with `module avail`
-module load python
+module load anaconda/3.2021.11 
+# Initialize Conda
+source /hpc/opt/apps/Anaconda/3-2021.11/etc/profile.d/conda.sh 
 
-# Activate the virtual environment to get access to the required packages
-source whisper-venv/bin/activate
+# Activate the conda environment to get access to the required packages
+conda activate whisperEnv
 
 # Run the main script to generate predictions
-python3 whisperx.py
+Python transcribe.py
 
 # Deactivate the virtual environment
-deactivate
+conda deactivate
