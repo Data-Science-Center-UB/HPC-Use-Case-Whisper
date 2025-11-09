@@ -13,12 +13,12 @@
 # of runtime help the scheduler and may help your job get
 # scheduled earlier, but will also kill your job if it exceeds
 # the requested time
-#SBATCH --time=00:15:00
+#SBATCH --time=00:30:00
 
 # Running on CPU only - setup does not need a GPU
-# We use 3 CPU cores
+# We use 10 CPU cores
 #SBATCH --partition=CPU
-#SBATCH --cpus-per-task=3
+#SBATCH --cpus-per-task=10
 
 # Telling SLURM where to write output and error files
 # %j gives job id
