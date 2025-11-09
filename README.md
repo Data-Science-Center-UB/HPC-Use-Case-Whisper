@@ -4,7 +4,7 @@ This use case demonstrates how to use a HPC cluster to run an speech-to-text tra
 
 ---
 
-Prerequisite:
+**Prerequisite:**
 
 If you don't have a Hugging Face Account you need to create one. 
 
