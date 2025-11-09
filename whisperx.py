@@ -20,7 +20,7 @@ audio_file = "shortened_Buffy_Seas01-Epis01.en.wav"
 
 # 4. Load Whisper model
 language = "en"
-model = whisperx.load_model("tiny", 
+model = whisperx.load_model("large-v3", 
                             device, 
                             compute_type=compute_type, 
                             language=language) # "tiny", "small", "large-v3", ...
@@ -60,5 +60,6 @@ with open(txt_path, "w", encoding="utf-8") as f:
         text = seg["text"].strip()
         start = str(timedelta(seconds=seg["start"]))[:-3]
         f.write(f"{speaker}: {text} [{start}]\n\n")
+
 
 print("Saved transcript to", txt_path)
