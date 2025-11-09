@@ -30,18 +30,18 @@
 
 # The actual code to be run starts here
 
-# Load the python LMod module so we can use the latest version
+# Load Conda
 # Check available modules with `module avail`
-module load python/3.10.1
+module load anaconda/3.2021.11 
+# Initialize Conda
+source /hpc/opt/apps/Anaconda/3-2021.11/etc/profile.d/conda.sh 
 
-# Activate the virtual environment to get access to the required packages
-source whisper-venv/bin/activate
+# Activate the environment
+conda activate whisperEnv
 
-# Upgrade pip
-python -m pip install --upgrade pip setuptools wheel
-
-# Install our required packages
-pip install -r requirements.txt
+# Install required Python packages
+conda install -c conda-forge ffmpeg pip -y
+pip install whisperx
 
 # Deactivate the virtual environment
-deactivate
+conda deactivate
