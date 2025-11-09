@@ -1,2 +1,3 @@
 ffmpeg
 whisperx
+pyannote.audio==3.4.0
