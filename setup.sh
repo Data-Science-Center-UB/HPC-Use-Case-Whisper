@@ -42,6 +42,7 @@ conda activate whisperEnv
 # Install required Python packages
 conda install -c conda-forge ffmpeg pip -y
 pip install whisperx
+pip install "pyannote.audio==3.4.0"
 
 # Deactivate the virtual environment
 conda deactivate
