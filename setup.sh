@@ -32,13 +32,16 @@
 
 # Load the python LMod module so we can use the latest version
 # Check available modules with `module avail`
-module load python
+module load python/3.10.1
 
 # Activate the virtual environment to get access to the required packages
 source whisper-venv/bin/activate
 
+# Upgrade pip
+python -m pip install --upgrade pip setuptools wheel
+
 # Install our required packages
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 
 # Deactivate the virtual environment
 deactivate
