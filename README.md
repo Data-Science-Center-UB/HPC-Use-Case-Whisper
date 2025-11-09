@@ -1,6 +1,6 @@
 # HPC Use Case Whisper
 
-This use case demonstrates how to use a HPC cluster to run an speech-to-text transcription and speaker diarization task with [WhisperX](https://github.com/m-bain/whisperX). See also [the GitHub repository Whisper-Audio-Transcription](https://github.com/Data-Science-Center-UB/Whisper-Audio-Transcription) for more information on this use case.
+This use case demonstrates how to use a HPC cluster to run an speech-to-text transcription and speaker diarization task with [WhisperX](https://github.com/m-bain/whisperX). See also [the GitHub repository Whisper-Audio-Transcription](https://github.com/Data-Science-Center-UB/Whisper-Audio-Transcription) for more information on this use case. The audio file used in this use case is a tiny snippet from an audio file derived from [Lerner et al. 2022](https://huggingface.co/datasets/bazinga/bazinga/tree/main/data/BuffyTheVampireSlayer) and it contains speech from the series 'Buffy the Vampire Slayer", season 01, episode 01. 
 
 ---
 
