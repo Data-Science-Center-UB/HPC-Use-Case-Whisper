@@ -18,10 +18,8 @@ Note that we run the environment installation on the CPU compute node to avoid p
 # 1. Enter the project folder
 cd HPC-Use-Case-Whisper
 
-# 2. Create the virtual environments
-# The name is referenced in the bash scripts,
-# so it should not be changed
-python3 -m venv ./whisper-venv
+# 2. Create the Conda environments
+conda create -n whisperEnv python=3.10 -y
 
 # 3. Run the installation via the sbatch script "setup.sh"
 sbatch setup.sh
