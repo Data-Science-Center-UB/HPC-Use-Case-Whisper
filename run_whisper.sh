@@ -3,7 +3,7 @@
 
 
 # First, we need to tell SLURM some information about the job
-#SBATCH --job-name=whisper
+#SBATCH --job-name=WHISPER
 
 # Requesting 4 GB of memory - This is just a mall example,
 # and this line allows the rest of the memory to be used
