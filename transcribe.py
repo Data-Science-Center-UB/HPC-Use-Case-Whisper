@@ -14,6 +14,7 @@ if device == "cuda":
 else:
     compute_type = "int8"     # Required or more efficient on CPU
     batch_size = 1            # Keep at 1 on CPU (larger values don’t help and may cause memory issues)
+own_token = "ENTER_YOUR_TOKEN" # <- REPLACE WITH YOUR TOKEN HERE
 
 # 3. Select audio file
 audio_file = "shortened_Buffy_Seas01-Epis01.en.wav"
@@ -63,3 +64,4 @@ with open(txt_path, "w", encoding="utf-8") as f:
 
 
 print("Saved transcript to", txt_path)
+
