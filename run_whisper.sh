@@ -40,7 +40,7 @@ source /hpc/opt/apps/Anaconda/3-2021.11/etc/profile.d/conda.sh
 conda activate whisperEnv
 
 # Run the main script to generate predictions
-Python transcribe.py
+python transcribe.py
 
 # Deactivate the virtual environment
 conda deactivate
