@@ -75,6 +75,7 @@ source /hpc/opt/apps/Anaconda/3-2021.11/etc/profile.d/conda.sh
 conda create -n whisper python=3.11 pip -y
 conda activate whisper
 python -m pip install -r requirements.txt
+python -m pip install ipykernel
 python -m ipykernel install --user --name whisper --display-name "whisper"
 ```
 
