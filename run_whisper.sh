@@ -1,46 +1,24 @@
 #!/bin/bash
 
+# SLURM job settings
+#SBATCH --job-name=whisper
+#SBATCH --partition=GPU           # Allocate GPU
+#SBATCH --gres=gpu:1              
+#SBATCH --time=02:00:00           # Maximum runtime: 2 hours
+#SBATCH --mem=24G                 # Request 24 GB of RAM
+#SBATCH --output=whisper-%j.out   # Standard output (%j = job ID)
 
+# Load Anaconda and activate the environment with required packages
+module load anaconda/3.2021.11
+source /hpc/opt/apps/Anaconda/3-2021.11/etc/profile.d/conda.sh
+conda activate whisper
 
-# First, we need to tell SLURM some information about the job
-#SBATCH --job-name=WHISPER
+# Navigate to the notebook directory
+cd "$SLURM_SUBMIT_DIR/../Python-Whisper-Audio-Transcription/Notebooks" || exit 1
 
-# Requesting 4 GB of memory - This is just a mall example,
-# and this line allows the rest of the memory to be used
-# by other jobs
-#SBATCH --mem=4G
-
-# Estimating a runtime of at most 10 minutes - Good estimates
-# of runtime help the scheduler and may help your job get
-# scheduled earlier, but will also kill your job if it exceeds
-# the requested time
-#SBATCH --time=00:10:00
-
-# These 2 lines request a GPU
-# If no GPU is needed, you can remove them
-#SBATCH --partition=GPU
-
-# Telling SLURM where to write output and error files
-# %j gives job id
-# %x gives job name
-#SBATCH --output=%x-%j.out
-#SBATCH --error=%x-%j.err
-
-
-
-# The actual code to be run starts here
-
-# Load Conda
-# Check available modules with `module avail`
-module load anaconda/3.2021.11 
-# Initialize Conda
-source /hpc/opt/apps/Anaconda/3-2021.11/etc/profile.d/conda.sh 
-
-# Activate the conda environment to get access to the required packages
-conda activate whisperEnv
-
-# Run the main script to generate predictions
-python transcribe.py
-
-# Deactivate the virtual environment
-conda deactivate
+# Execute the notebook using the 'whisper' kernel
+# Save the executed notebook, including its outputs, as a separate file
+jupyter nbconvert --to notebook --execute "faster-whisper-pyannote.ipynb" \
+  --ExecutePreprocessor.kernel_name=whisper \
+  --ExecutePreprocessor.timeout=-1 \
+  --output="faster-whisper-pyannote_executed.ipynb"
