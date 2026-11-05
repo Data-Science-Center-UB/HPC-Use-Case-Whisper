@@ -22,19 +22,6 @@ cd Python-Whisper-Audio-Transcription
 
 The Jupyter notebooks are in `Notebooks/`, example audio files in `Data_Raw/`, and transcripts are saved in `Results/`. You can also upload your own audio file to `Data_Raw/`.
 
-**Step 2 - Create a new environment:**
-
-Create a Conda environment (we name it "whisper") with Python 3.11 and install the packages listed in `requirements.txt`. The following module and paths refer to the DSC cluster setup.
-
-```bash
-module load anaconda/3.2021.11
-source /hpc/opt/apps/Anaconda/3-2021.11/etc/profile.d/conda.sh
-conda create -n whisper python=3.11 pip -y
-conda activate whisper
-python -m pip install -r requirements.txt
-python -m ipykernel install --user --name whisper --display-name "whisper"
-```
-
 **Adapt the Jupyter notebook:**
 
 Choose the Whisper notebook you want to run from the `Notebooks/` folder and check or adapt its settings including for GPU execution as described below.
@@ -77,6 +64,19 @@ Choose the Whisper notebook you want to run from the `Notebooks/` folder and che
    ```
 
 In addition, there are further adaptations possible as explained inside the notebooks, such as adjusting the `min_speakers` and `max_speakers` settings in Section 7 for your recording.
+
+**Step 2 - Create a new environment:**
+
+Create a Conda environment (we name it "whisper") with Python 3.11 and install the packages listed in `requirements.txt`. The following module and paths refer to the DSC cluster setup.
+
+```bash
+module load anaconda/3.2021.11
+source /hpc/opt/apps/Anaconda/3-2021.11/etc/profile.d/conda.sh
+conda create -n whisper python=3.11 pip -y
+conda activate whisper
+python -m pip install -r requirements.txt
+python -m ipykernel install --user --name whisper --display-name "whisper"
+```
 
 **Step 3 - Run the Jupyter notebook by submitting a SLURM job:**
 
