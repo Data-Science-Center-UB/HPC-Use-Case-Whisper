@@ -26,7 +26,7 @@ The Jupyter notebooks are in `Notebooks/`, example audio files in `Data_Raw/`, a
 
 Choose the Whisper notebook you want to run from the `Notebooks/` folder and check or adapt its settings including for GPU execution as described below.
 
->Note: Since Jupyter notebooks (`.ipynb`) are stored in JSON format, editing them directly in a terminal text editor on the cluster can be cumbersome. It may be easier to modify the notebook locally and then upload the updated file to the cluster, for example using `scp`. Make sure the SLURM script (`run_notebook.sh`) references the correct notebook filename.
+>**Note:** Editing Jupyter notebooks (`.ipynb`) directly on the cluster can be cumbersome due to their JSON format. You can edit them locally and upload them using [WinSCP](https://winscp.net/) (GUI) or `scp`. Make sure `run_notebook.sh` references the correct notebook filename.
 
 1. **Select the audio file** in Section 3.2. Set `file_name` (used for the transcript filename) and `audio_file` (the path relative to `Notebooks/`), and comment out other active file selections. For example:
 
